@@ -15,16 +15,25 @@ const Home: React.FC = () => {
         const fetchCountries = async () => {
             try {
                 setLoading(true);
+
                 // First try to fetch from the local data.json file
-                const response = await fetch('/data.json');
+                let response = await fetch('/data.json');
+
                 if (!response.ok) {
-                    throw new Error('Failed to fetch countries data');
+                    // If local data.json fails, try the REST Countries API
+                    console.log('Local data.json failed, trying REST Countries API...');
+                    response = await fetch('https://restcountries.com/v2/all');
                 }
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch countries data from both sources');
+                }
+
                 const data = await response.json();
                 setCountries(data);
             } catch (err) {
                 console.error('Error fetching countries:', err);
-                setError('Failed to load countries data');
+                setError('Failed to load countries data. Please check your internet connection.');
             } finally {
                 setLoading(false);
             }
