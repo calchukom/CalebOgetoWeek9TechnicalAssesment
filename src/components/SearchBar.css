@@ -1,0 +1,100 @@
+.search-filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  flex: 1;
+  max-width: 400px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  color: var(--input-color);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--element-bg);
+  color: var(--text-color);
+  font-size: 0.875rem;
+  font-family: inherit;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.search-input::placeholder {
+  color: var(--input-color);
+}
+
+.filter-dropdown {
+  min-width: 200px;
+}
+
+.choose-region {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--element-bg);
+  color: var(--text-color);
+  font-size: 0.875rem;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 3rem;
+}
+
+.choose-region:focus {
+  outline: none;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.choose-region option {
+  background: var(--element-bg);
+  color: var(--text-color);
+}
+
+@media (max-width: 780px) {
+  .search-filter-container {
+    gap: 13px;
+    flex-direction: column;
+    align-items: stretch;    
+  }
+  
+  .search-box {
+    max-width: none;
+  }
+  
+  .filter-dropdown {
+    min-width: auto;
+    max-width: 200px;
+  }
+}
